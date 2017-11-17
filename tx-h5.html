@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TX-h5</title>
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/TXH5.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+</head>
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!--------------------------swiper-slide1--------------------------------->
+            <section class="swiper-slide swiper-slide1" data-hash="slide1" style="background: url('psd/p1/images/bk1.png') no-repeat;">
+                <img src="psd/p1/images/images/TXheader_01.png" class="resize ani" swiper-animate-delay="0.5s">
+                <img src="psd/p1/images/images/middle-content_02.png" class="resize ani" swiper-animate-effect="fadeIn"
+swiper-animate-delay="0s" swiper-animate-delay="0.5s">
+                <img src="psd/p1/images/images/museun_02.png" class="museun resize" swiper-animate-delay="0.8s" swiper-animate-effect="fadeInUpBig" swiper-animate-delay="0s">
+                <img src="psd/p1/images/images/spindrift.png" class="spindrift resize" swiper-animate-delay="0.8s" swiper-animate-effect="fadeInUpBig" swiper-animate-delay="0.2s">
+                <img src="psd/p1/images/images/spaceman.png" class="spaceman resize" swiper-animate-delay="0.8s" swiper-animate-effect="fadeInUpBig" swiper-animate-delay="0.5s">
+            </section>
+            <!--------------------------swiper-slide2-------------------------------->
+            <section class="swiper-slide swiper-slide2" data-hash="slide2" style="background: url('psd/p2/images/bk-guest.png');">
+                <img src="psd/p2/images/guest-tittle.png"  class="resize ani tittle" swiper-animate-effect="slideInDown" swiper-animate-delay="0s">
+                <img src="psd/p2/images/guest1.png" class="guest1 resize ani" swiper-animate-effect="flipInX" swiper-animate-delay="0.6s">
+                <img src="psd/p2/images/guest2.png" class="guest2 resize ani" swiper-animate-effect="flipInX" swiper-animate-delay="0.6s">
+                <img src="psd/p2/images/guest3.png" class="guest3 resize ani" swiper-animate-effect="flipInX" swiper-animate-delay="0.6s">
+            </section>
+            <!--------------------------swiper-slide3--------------------------------->
+            <section class="swiper-slide swiper-slide3" data-hash="slide3" style="background: url('psd/p3/images/bk-process.png');">
+                <img src="psd/p3/images/process-tittle.png" class="resize ani tittle" swiper-animate-delay="0s" swiper-animate-effect="slideInDown">
+                <div id="swiper-contianerW">
+                    <div class="swiper-wrapper ani" swiper-animate-delay="0.5s" swiper-animate-effect="fadeIn">
+                        <div class="swiper-slide">
+                            <img src="psd/p3/images/process-list1.png" class="resize">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="psd/p3/images/process-list2.png" class="resize">
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <img src="psd/p3/images/museun.png"  class="resize" swiper-animate-effect="fadeInUpBig" swiper-animate-delay="0s">
+                <img src="psd/p3/images/phenix.png" class="resize" swiper-animate-effect="fadeInUpBig" swiper-animate-delay="0.3s">
+            </section>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+<script src="js/swiper.min.js"></script>
+<script src="js/swiper.animate1.0.2.min.js"></script>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+    scaleW = window.innerWidth/320;
+    scaleH = window.innerHeight/480;
+    var resize = document.querySelectorAll('.resize');
+//    console.log(resize);
+    for(var i=0;i<resize.length;i++){
+        resize[i].style.width = parseInt(resize[i].style.width)*scaleW+'px';
+        resize[i].style.height = parseInt(resize[i].style.height)*scaleH+'px';
+        resize[i].style.left = parseInt(resize[i].style.left)*scaleW+'px';
+        resize[i].style.top = parseInt(resize[i].style.top)*scaleH+'px';
+    }
+    $(document).ready(function(){
+        //初始化Swiper
+        var swiper = new Swiper('.swiper-container',{
+            on:{
+                init:function(){
+                    swiperAnimateCache(this);
+//                    console.log(this)
+                    swiperAnimate(this);
+                },
+                slideChange:function(){
+                    swiperAnimate(this);
+                },
+                transition:function(){
+                    swiperAnimate(this)
+                }
+            },
+            direction: 'vertical',
+            loop: false,
+            grabCursor:true,
+            autoplay:{ //自动切换
+                delay: 5000, //自动切换的时间为5000ms
+                stopOnLastSlide:true,//当切换到最后一个slide时停止自动切换
+            },
+
+
+
+            //如果需要分页器
+            pagination:{
+                el:'.swiper-pagination',
+                type: 'bullets',//分页器样式
+                //type: 'fraction',
+                //type : 'progressbar',
+                //type : 'custom',
+                clickable: true,
+            },
+
+            //鼠标控制切换
+            mousewheel:true,
+
+            //启用hash导航
+            hashNavigation:true,
+
+//            onProgress: function(){
+//                for (var i = 0; i < this.slides.length; i++){
+//                    var slide = this.slides[i];
+//                    var progress = slide.progress;
+//                    var translate = progress*this.height/4;
+//                    scale = 1 - Math.min(Math.abs(progress * 0.5), 1);
+//                    var opacity = 1 - Math.min(Math.abs(progress/2),0.5);
+//                    slide.style.opacity = opacity;
+//                    es = slide.style;
+//                    es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform = 'translate3d(0,'+translate+'px,-'+translate+'px) scaleY(' + scale + ')';
+//
+//                }
+//            },
+//
+//            onSetTransition: function( speed) {
+//                for (var i = 0; i < this.slides.length; i++){
+//                    es = this.slides[i].style;
+//                    es.webkitTransitionDuration = es.MsTransitionDuration = es.msTransitionDuration = es.MozTransitionDuration = es.OTransitionDuration = es.transitionDuration = speed + 'ms';
+//
+//                }
+//            },
+//
+//            //如果需要前进后退按钮
+//            navigation:{
+//                nextEl:'.swiper-button-next',
+//                prevEl:'.swiper-button-prev'
+//            },
+//
+//            //如果需要滚动条
+//            scrollbar:{
+//                el:'.swiper-scrollbar'
+//            }
+        });
+
+        var swiperW = new Swiper('#swiper-contianerW',function(){
+            direction:'horizontal'
+        })
+    });
+
+
+</script>
+</body>
+</html>

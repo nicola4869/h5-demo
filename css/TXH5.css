@@ -1,0 +1,56 @@
+body,html{
+    padding:0;
+    margin:0;
+    width: 100%;
+    height: 100%;
+}
+img{
+    display: block;
+    width:100%;
+}
+.tittle{
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+}
+.swiper-container{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.swiper-slide{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+}
+.museun{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 10001;
+}
+.spindrift{
+    position: absolute;
+    left:0;
+    bottom: 0;
+    z-index: 10002;
+}
+.phenix{
+    position: absolute;
+    left:0;
+    bottom: 0;
+    z-index: 10003;
+}
+.spaceman{
+    width:auto;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 10003;
+}
+.guest1,.guest2,.guest3{
+    margin-top: 20px;
+}
+
+
